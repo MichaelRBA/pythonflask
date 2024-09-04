@@ -1,0 +1,75 @@
+<!-- view_product.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alfamart Product Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            background-color: #ff0000;
+            color: white;
+            padding: 20px;
+            margin: 0;
+            width: 100%;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin-top: 20px;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .product-details p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        .product-details .label {
+            font-weight: bold;
+        }
+        .product-actions a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #ff0000;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .product-actions a:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Product Details</h1>
+    <div class="container">
+        <div class="product-details">
+            <p><span class="label">Name:</span> {{ product['name'] }}</p>
+            <p><span class="label">Price:</span> {{ product['price'] }}</p>
+            <p><span class="label">Description:</span> {{ product['description'] }}</p>
+        </div>
+        <div class="product-actions">
+            <a href="{{ url_for('edit_product', id=product['_id']) }}">Edit Product</a>
+            <a href="{{ url_for('index') }}">Back to Product List</a>
+        </div>
+    </div>
+</body>
+</html>
